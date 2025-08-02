@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {CustomSlider } from './custom-slider/custom-slider';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+   imports: [CustomSlider],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

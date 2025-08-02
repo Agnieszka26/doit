@@ -1,0 +1,89 @@
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.slider-container{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+    gap: 65px;
+    padding: 90px 20px 92px;
+  
+
+  
+}
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-350px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slider-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+    gap: 24px;
+    height: 150px;
+      animation: slideInDown 0.3s ease-in-out;
+}
+.slide-image {
+    width: 150px;
+    height: auto;
+
+}
+
+.slide-text {
+   font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--text-white);
+    font-weight: medium;
+    padding: 0 40px;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 8px;
+  height: 4px;
+  background-color: var(--text-white);
+  border-radius: 2px;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+     width: 20px;
+}
+
+.next-button {
+  background-color: var(--text-white);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 0 3px var(--text-white);
+}
+.next-button p{
+    color: var(--text-black);
+}
+
+.slider-controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

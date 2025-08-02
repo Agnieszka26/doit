@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --background-blue-light: #1253aa;
+  --background-blue-dark: #05243e;
+  --text-white: #FFFFFF;
+  --text-black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-blue-light);
+  background-image: linear-gradient(
+    var(--background-blue-light),
+    var(--background-blue-dark)
+  );
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
