@@ -1,0 +1,37 @@
+<div class="slider">
+  <div class="slider-container" [accessKey]="currentIndex">
+    @if (currentIndex === 0) {
+      <div>
+        <img src="/assets/icons/logo.svg" alt="Logo" />
+        <img src="/assets/icons/logo_name.svg" alt="DO IT" />
+      </div>
+    } @else {
+      <div>
+        <img
+          [src]="slides[currentIndex].image"
+          alt="Slide image"
+          class="slide-image"
+        />
+      </div>
+    }
+    <p class="slide-text">{{ slides[currentIndex].text }}</p>
+  </div>
+  <div class="slider-controls">
+    @if (currentIndex !== 0) {
+      <div class="pagination">
+        @for (slide of slides; track slide.text; let idx = $index) {
+          <div [class.active]="idx === currentIndex" class="dot"></div>
+        }
+      </div>
+    }
+    @if (currentIndex === 4) {
+      <a href="/login" class="next-button">
+        <div><img src="/assets/icons/done_icon.png" alt="done" /></div>
+      </a>
+    } @else {
+      <button (click)="nextSlide()" class="next-button">
+        <div><img src="/assets/icons/arrow_right.png" alt="arrow-right" /></div>
+      </button>
+    }
+  </div>
+</div>
