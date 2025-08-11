@@ -1,0 +1,9 @@
+.btn{
+    background-color: var(--color-primary);
+    color: var(--text-white);
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;   
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}

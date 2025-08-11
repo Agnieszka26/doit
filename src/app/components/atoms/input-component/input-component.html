@@ -1,0 +1,16 @@
+<div class="input-wrapper">
+  <span class="icon">
+    <img [src]="icon" alt="icon" />
+  </span>
+  <input
+    [value]="value"
+    [placeholder]="placeholder"
+    (input)="onInput($event.target.value || '')"
+    (blur)="registerOnTouched($event)"
+  />
+</div>
+@if (!invalid) {
+  <div  class="error-message">
+    <span class="error-text">{{ firstErrorMessage }}</span>
+  </div>
+}

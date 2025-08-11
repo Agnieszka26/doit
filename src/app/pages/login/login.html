@@ -1,8 +1,16 @@
 <main>
-    <img src="assets/images/logo.png" alt="Logo" class="logo">
-    <h2>{{TEXTS.welcome}}</h2>
-    <p>{{TEXTS.welcomeOther}}</p>
-<app-login-form></app-login-form>
-<p>{{TEXTS.doNotHaveAccount}} <a href="singin">{{TEXTS.signUp}}</a></p>
-<p>{{TEXTS.signInWith}}</p><a>google</a><a>apple</a>
+  <div class="logo-container">
+    <img src="assets/icons/logo.svg" alt="Logo" class="logo" />
+  </div>
+  <h2>{{ TEXTS.welcome }}</h2>
+  <p>{{ TEXTS.welcomeOther }}</p>
+  <app-login-form></app-login-form>
+  <p class="text-account">
+    {{ TEXTS.doNotHaveAccount }} <app-link-component style="text-align: end;" label="{{ TEXTS.signUp }}" href="singin"></app-link-component>
+  </p>
+  <div class="social-login-container">
+      <p>{{ TEXTS.signInWith }}</p>
+      <button><img src="assets/icons/apple_icon.png" alt="apple icon" /> </button><button><img src="assets/icons/google_icon.png" alt="google icon" /></button>
+
+  </div>
 </main>
