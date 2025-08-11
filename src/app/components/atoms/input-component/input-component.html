@@ -5,7 +5,7 @@
   <input
     [value]="value"
     [placeholder]="placeholder"
-    (input)="onInput($event.target.value || '')"
+    (input)="onInput($event.target.value ?? '')"
     (blur)="registerOnTouched($event)"
   />
 </div>

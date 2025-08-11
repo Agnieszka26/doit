@@ -23,6 +23,7 @@ export const texts = {
     signUpWith: 'Sign Up with:',
     email: 'Email',
     password: 'Password',   
+    confirmPassword: 'Confirm Password',
     fullName: 'Full Name',
   },
 };
