@@ -1,4 +1,61 @@
+<div class="top-bar">
+  <div class="avatar">
+    <img src="/assets/images/avatar-default.svg" alt="avatar image" />
+  </div>
+  <div class="text-container">
+    <p class="text-name">name</p>
+    <p class="text-email">email address</p>
+  </div>
+  <div class="notification-container">
+    <img src="/assets/icons/bell.png" alt="notification icon" />
+  </div>
+</div>
 <section>
-dashboard
-<app-navbar></app-navbar>
+  <h3>Group tasks</h3>
+  <!-- TODO: zrobić karuzelę :)  -->
+  <div class="group-task-container carousel">
+    <div class="group-task-card">
+      <h4>Group task Name</h4>
+      <p>Details Details | Details</p>
+      <div>
+        People <img src="assets/icons/plus_people_icon.png" alt="plus icon" />
+      </div>
+    </div>
+    <div class="group-task-card">
+      <h4>Group task Name</h4>
+      <p>Details Details | Details</p>
+      <div>
+        People <img src="assets/icons/plus_people_icon.png" alt="plus icon" />
+      </div>
+    </div>
+  </div>
+  <h3>Incomplete Tasks</h3>
+  <div class="inclomplete-task-container">
+    <app-task-item
+      [taskName]="`Client meeting`"
+      [taskTime]="`Tomorrow | 10:30pm`"
+      [taskId]="`123`"
+    ></app-task-item>
+    <app-task-item
+      [taskName]="`Client meeting with pople`"
+      [taskTime]="`Tomorrow | 12:30pm`"
+      [taskId]="`124`"
+    ></app-task-item>
+  </div>
+  <h3>Completed Tasks</h3>
+  <div class="inclomplete-task-container">
+    <app-task-item
+      [isComplete]="true"
+      [taskName]="`Client meeting`"
+      [taskTime]="`Today | 10:30pm`"
+      [taskId]="`122`"
+    ></app-task-item>
+    <app-task-item
+      [isComplete]="true"
+      [taskName]="`Client meeting with pople`"
+      [taskTime]="`Today | 12:30pm`"
+      [taskId]="`121`"
+    ></app-task-item>
+  </div>
 </section>
+<app-navbar></app-navbar>

@@ -1,1 +1,14 @@
-<p>task-item works!</p>
+<div class="task-item" id="{{ taskId }}">
+  <div class="texts-container">
+    @if (isComplete === true) {
+      <img src="assets/icons/icon _check_circle.png" alt="done ok icon" />
+    } @else {}
+    <div class="text">
+      <h4>{{ taskName }}</h4>
+      <p>{{ taskTime }}</p>
+    </div>
+  </div>
+  <a class="chevron_right-container" href="task-page/{{ taskId }}">
+    <img src="assets/icons/icon _chevron_right.png" alt="icon _chevron_right" />
+  </a>
+</div>

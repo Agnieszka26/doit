@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task-item',
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './task-item.css'
 })
 export class TaskItem {
-
+@Input({ required: true }) taskName!: string;
+@Input({ required: true }) taskTime!: string;
+@Input({ required: true }) taskId!: string;
+@Input() isComplete!: boolean;
 }

@@ -14,9 +14,6 @@ nav {
   padding: 24px 16px;
   margin: auto;
 }
-/* .active-link{
-    /* border-bottom: 3px solid var(--color-primary); 
-} */
 
 .tabs-bar a {
   text-decoration: none;
@@ -27,5 +24,5 @@ nav {
 }
 
 .tabs-bar a.active-link {
-  border-bottom-color: var(--color-primary); /* niebieskie podkreślenie */
+  border-bottom-color: var(--color-primary);
 }

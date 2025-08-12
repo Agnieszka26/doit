@@ -1,0 +1,26 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--text-white);
+  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+.task-item h4,
+p {
+  color: var(--background-blue-dark);
+}
+.task-item h4 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.task-item p {
+  font-size: 10px;
+  font-weight: 400;
+}
+.texts-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
