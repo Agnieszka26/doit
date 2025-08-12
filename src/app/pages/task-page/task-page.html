@@ -1,4 +1,42 @@
 <section>
-task page
-<app-navbar></app-navbar>
+<div>search and sort menu</div>
+ <h3>Tasks List</h3>
+  <div class="task-container">
+    <app-task-item
+      [taskName]="`Client meeting`"
+      [taskTime]="`Tomorrow | 10:30pm`"
+      [taskId]="`123`"
+    ></app-task-item>
+    <app-task-item
+      [taskName]="`Client meeting with pople`"
+      [taskTime]="`Tomorrow | 12:30pm`"
+      [taskId]="`124`"
+    ></app-task-item>
+    <app-task-item
+      [taskName]="`Client meeting with pople`"
+      [taskTime]="`Tomorrow | 12:30pm`"
+      [taskId]="`125`"
+    ></app-task-item>
+    <app-task-item
+      [taskName]="`Client meeting with pople`"
+      [taskTime]="`Tomorrow | 12:30pm`"
+      [taskId]="`126`"
+    ></app-task-item>
+    <div class="add-task-button-container">
+
+        <button class="add-task-btn" (click)="openSheet()">
+            <img src="assets/icons/add_task_icon.png" alt="add task icon" />
+        </button>
+    </div>
+  </div>
 </section>
+<app-drawer [open]="isOpen" (closed)="closeSheet()">
+      <div class="drawer-container">
+        <p>CREATE FORM</p>
+        <!-- <img src="assets/images/Checkmark.png" alt="ok image" />
+        <h3>{{ TEXTS.yourAccountSuccessfully }}</h3>
+        <p>{{ TEXTS.receiveEmail }}</p>
+        <a href="verification"> {{ TEXTS.verifyCode }} </a> -->
+      </div>
+    </app-drawer>
+<app-navbar></app-navbar>

@@ -6,7 +6,7 @@ import { TaskItem } from "../../components/task-item/task-item";
   selector: 'app-dashboard',
   imports: [Navbar, TaskItem],
   templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css'
+  //styleUrl: '../dashboard.css'
 })
 export class Dashboard {
 
