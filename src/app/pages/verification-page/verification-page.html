@@ -1,1 +1,26 @@
-<p>verification-page works!</p>
+<main>
+  <h2>{{ TEXTS.verifyAccount }}</h2>
+  <div class="verification-container">
+    <img src="assets/icons/logo_name.svg" alt="DO IT Logo" />
+    <p>{{ TEXTS.description }}</p>
+    <form>
+      <app-input-component
+        placeholder="{{ TEXTS.verificationCode }}"
+      ></app-input-component>
+      <app-button-component
+        [label]="TEXTS.verify"
+        (click)="onSubmit()"
+        type="button"
+      ></app-button-component>
+    </form>
+    @if (drawerType === "success") {
+      <app-drawer [open]="isOpen" (closed)="closeSheet()">
+        <div class="drawer-container">
+          <img src="assets/images/Checkmark.png" alt="ok image" />
+          <p>{{ TEXTS.successMessage }}</p>
+          <a href="login"> login </a>
+        </div>
+      </app-drawer>
+    }
+  </div>
+</main>

@@ -9,6 +9,7 @@ import {
 import { InputComponent } from '../../atoms/input-component/input-component';
 import { ButtonComponent } from '../../atoms/button-component/button-component';
 import { LinkComponent } from '../../atoms/link-component/link-component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-form',
   standalone: true,
@@ -23,7 +24,7 @@ import { LinkComponent } from '../../atoms/link-component/link-component';
 })
 export class LoginForm {
   readonly TEXTS = texts.LOGIN_SIGNIN;
-
+  private router = inject(Router);
   private fb = inject(FormBuilder);
   form: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -38,11 +39,11 @@ export class LoginForm {
   onSubmit() {
     if (this.form.valid) {
       console.log('Form submitted:', this.form.value);
-      // tutaj można dodać logikę logowania, np. wysłanie danych do serwera
+      this.router.navigate(['dashboard']);
+      //TODO: wysłanie danych do serwera
     } else {
       console.log('Form is invalid');
       this.form.markAllAsTouched();
-      // tutaj można dodać logikę obsługi błędów, np. wyświetlenie komunikatu o błędzie
     }
   }
 }

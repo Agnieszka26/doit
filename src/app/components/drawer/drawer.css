@@ -25,6 +25,7 @@
       transform: translateY(100%);
       transition: transform 250ms ease-out;
       touch-action: none;
+    
     }
     .sheet.open {
       transform: translateY(0%);

@@ -13,4 +13,21 @@
       <button><img src="assets/icons/apple_icon.png" alt="apple icon" /> </button><button><img src="assets/icons/google_icon.png" alt="google icon" /></button>
 
   </div>
+
+  <app-drawer [open]="isOpen" (closed)="closeSheet()">
+      @switch (drawerType) {
+        @case ("apple") {
+          <h3>Login by your Apple account </h3>
+          <p style="color: var(--background-blue-dark)">
+          Available soon ...
+          </p>
+        }
+        @case ("google") {
+          <h3>Login by your Google account </h3>
+          <p style="color: var(--background-blue-dark)">
+             Available soon ...
+          </p>
+        }
+      }
+    </app-drawer>
 </main>

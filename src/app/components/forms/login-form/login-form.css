@@ -1,7 +1,22 @@
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding-top: 48px;
-   
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 48px;
+}
+
+.drawer-container {
+  text-align: center;
+}
+.drawer-container p {
+  color: var(--background-blue-dark);
+  padding-bottom: 16px;
+}
+
+.drawer-container a {
+  color: var(--text-white);
+  text-decoration: none;
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  border-radius: 8px;
 }

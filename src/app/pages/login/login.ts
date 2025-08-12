@@ -18,7 +18,6 @@ export class Login {
 
   openSheet(type: 'apple' | 'google') {
     this.drawerType = type;
-    console.log('openSheet()');
     this.isOpen = true;
   }
 

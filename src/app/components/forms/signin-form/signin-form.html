@@ -40,4 +40,14 @@
     (click)="onSubmit()"
     type="button"
   ></app-button-component>
+  @if (drawerType === "success") {
+    <app-drawer [open]="isOpen" (closed)="closeSheet()">
+      <div class="drawer-container">
+        <img src="assets/images/Checkmark.png" alt="ok image" />
+        <h3>{{ TEXTS.yourAccountSuccessfully }}</h3>
+        <p>{{ TEXTS.receiveEmail }}</p>
+        <a href="verification"> {{ TEXTS.verifyCode }} </a>
+      </div>
+    </app-drawer>
+  }
 </form>

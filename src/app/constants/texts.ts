@@ -25,5 +25,16 @@ export const texts = {
     password: 'Password',   
     confirmPassword: 'Confirm Password',
     fullName: 'Full Name',
+    yourAccountSuccessfully: "Your account has been created successfully",
+    receiveEmail: 'You gonna receive a verification code in your email',
+    verifyCode: "Verify your email code."
+
   },
+  VERIFICATION:{
+    verifyAccount: "Verify account",
+    description: "By verifying your account, you data will be secured and be default you are accepting our terms and policies",
+    verificationCode: "Verification code",
+    verify: "Verify",
+    successMessage: "example2023@gmail.com is verified"
+  }
 };

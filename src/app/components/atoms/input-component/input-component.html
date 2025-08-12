@@ -1,7 +1,11 @@
 <div class="input-wrapper">
-  <span class="icon">
-    <img [src]="icon" alt="icon" />
-  </span>
+  @if (icon === "") {
+    <span></span>
+  } @else {
+    <span class="icon">
+      <img [src]="icon" alt="icon" />
+    </span>
+  }
   <input
     [value]="value"
     [placeholder]="placeholder"
@@ -10,7 +14,7 @@
   />
 </div>
 @if (!invalid) {
-  <div  class="error-message">
+  <div class="error-message">
     <span class="error-text">{{ firstErrorMessage }}</span>
   </div>
 }

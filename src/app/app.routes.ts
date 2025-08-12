@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'singin', component: Singin },
   { path: 'verification', component: VerificationPage },
-  { path: '**', component: NotFound },
   { path: 'dashboard', component: Dashboard },
   { path: 'task', component: TaskPage },
+  { path: '**', component: NotFound },
 ];

@@ -22,17 +22,17 @@
     </button>
     <app-drawer [open]="isOpen" (closed)="closeSheet()">
       @switch (drawerType) {
-        @case ('apple') {
-          <h3>Apple</h3>
-          <p  style="color: var(--background-blue-dark)">To jest panel z informacjami.</p>
+        @case ("apple") {
+          <h3>Login by your Apple account </h3>
+          <p style="color: var(--background-blue-dark)">
+          Available soon ...
+          </p>
         }
-        @case ('google') {
-           <h3>Google</h3>
-          <p  style="color: var(--background-blue-dark)">Tu są ustawienia aplikacji.</p>
-        }
-        @default {
-           <h3>Default</h3>
-          <p  style="color: var(--background-blue-dark)">Tu są ustawienia aplikacji.</p>
+        @case ("google") {
+          <h3>Login by your Google account </h3>
+          <p style="color: var(--background-blue-dark)">
+             Available soon ...
+          </p>
         }
       }
     </app-drawer>

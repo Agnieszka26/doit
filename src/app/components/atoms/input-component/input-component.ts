@@ -59,7 +59,6 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   get firstErrorMessage(): string | null {
-    console.log('get firstErrorMessage', this.errors);
     const errors = this.errors;
     if (!errors) return null;
     if (errors['required']) {
