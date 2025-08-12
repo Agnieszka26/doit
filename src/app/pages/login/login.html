@@ -6,11 +6,35 @@
   <p>{{ TEXTS.welcomeOther }}</p>
   <app-login-form></app-login-form>
   <p class="text-account">
-    {{ TEXTS.doNotHaveAccount }} <app-link-component style="text-align: end;" label="{{ TEXTS.signUp }}" href="singin"></app-link-component>
+    {{ TEXTS.doNotHaveAccount }}
+    <app-link-component
+      style="text-align: end"
+      label="{{ TEXTS.signUp }}"
+      href="singin"
+    ></app-link-component>
   </p>
   <div class="social-login-container">
-      <p>{{ TEXTS.signInWith }}</p>
-      <button><img src="assets/icons/apple_icon.png" alt="apple icon" /> </button><button><img src="assets/icons/google_icon.png" alt="google icon" /></button>
-
+    <p>{{ TEXTS.signInWith }}</p>
+    <button (click)="openSheet('apple')">
+      <img src="assets/icons/apple_icon.png" alt="apple icon" /></button
+    ><button (click)="openSheet('google')">
+      <img src="assets/icons/google_icon.png" alt="google icon" />
+    </button>
+    <app-drawer [open]="isOpen" (closed)="closeSheet()">
+      @switch (drawerType) {
+        @case ('apple') {
+          <h3>Apple</h3>
+          <p  style="color: var(--background-blue-dark)">To jest panel z informacjami.</p>
+        }
+        @case ('google') {
+           <h3>Google</h3>
+          <p  style="color: var(--background-blue-dark)">Tu są ustawienia aplikacji.</p>
+        }
+        @default {
+           <h3>Default</h3>
+          <p  style="color: var(--background-blue-dark)">Tu są ustawienia aplikacji.</p>
+        }
+      }
+    </app-drawer>
   </div>
 </main>

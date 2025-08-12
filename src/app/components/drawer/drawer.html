@@ -1,1 +1,15 @@
-<p>drawer works!</p>
+<div class="backdrop" 
+         [class.visible]="open" 
+         (click)="close()"
+         (keydown)="onBackdropKeydown($event)"
+         tabindex="0"
+         role="button"
+         aria-label="Close drawer"></div>
+
+    <div class="sheet" 
+         [class.open]="open"
+         (mousedown)="startDrag($event)"
+         (touchstart)="startDrag($event)">
+      <div class="drag-handle"></div>
+      <ng-content></ng-content>
+    </div>
