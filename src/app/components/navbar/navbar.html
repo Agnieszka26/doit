@@ -1,0 +1,18 @@
+<nav>
+  <div class="tabs-bar">
+    <a routerLink="/dashboard"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ><img src="assets/icons/navbar_icons/Home.svg" alt="Home Icon" />
+    </a>
+    <a routerLink="/task" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link"
+      ><img src="assets/icons/navbar_icons/TodoList.png" alt="TODOList Icon"
+    /></a>
+    <a routerLink="/calendar" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link"
+      ><img src="assets/icons/navbar_icons/Calendar.png" alt="Calendar Icon"
+    /></a>
+    <a routerLink="/settings" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link"
+      ><img src="assets/icons/navbar_icons/Settings.png" alt="Settings Icon"
+    /></a>
+  </div>
+</nav>

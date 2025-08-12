@@ -14,5 +14,7 @@ export const routes: Routes = [
   { path: 'verification', component: VerificationPage },
   { path: 'dashboard', component: Dashboard },
   { path: 'task', component: TaskPage },
+  { path: 'calendar', component: TaskPage },
+  { path: 'settings', component: TaskPage },
   { path: '**', component: NotFound },
 ];

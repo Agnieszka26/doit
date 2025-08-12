@@ -1,0 +1,31 @@
+nav {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}
+.tabs-bar {
+  max-width: 441px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 16px;
+  margin: auto;
+}
+/* .active-link{
+    /* border-bottom: 3px solid var(--color-primary); 
+} */
+
+.tabs-bar a {
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.tabs-bar a.active-link {
+  border-bottom-color: var(--color-primary); /* niebieskie podkreślenie */
+}
