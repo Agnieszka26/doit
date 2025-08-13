@@ -36,5 +36,11 @@ export const texts = {
     verificationCode: "Verification code",
     verify: "Verify",
     successMessage: "example2023@gmail.com is verified"
+  },
+  TASK: {
+    task: "Task",
+    description: "Description",
+    cancel: "cancel",
+    create: "create",
   }
 };

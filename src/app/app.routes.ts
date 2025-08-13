@@ -6,6 +6,7 @@ import { Singin } from './pages/singin/singin';
 import { VerificationPage } from './pages/verification-page/verification-page';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { TaskPage } from './pages/task-page/task-page';
+import { TaskDetailsPage } from './pages/task-details-page/task-details-page';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'verification', component: VerificationPage },
   { path: 'dashboard', component: Dashboard },
   { path: 'task', component: TaskPage },
+  {path: 'task/:id', component: TaskDetailsPage},
   { path: 'calendar', component: TaskPage },
   { path: 'settings', component: TaskPage },
   { path: '**', component: NotFound },
