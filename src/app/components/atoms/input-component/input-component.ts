@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, HostBinding, Input, signal } from '@angular/core';
 import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
@@ -6,6 +6,29 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { forwardRef } from '@angular/core';
+type InputType =
+  | 'text'
+  | 'email'
+  | 'password'
+  | 'number'
+  | 'tel'
+  | 'url'
+  | 'search'
+  | 'date'
+  | 'datetime-local'
+  | 'month'
+  | 'time'
+  | 'week'
+  | 'color'
+  | 'file'
+  | 'checkbox'
+  | 'radio'
+  | 'range'
+  | 'hidden'
+  | 'submit'
+  | 'reset'
+  | 'button';
+
 @Component({
   standalone: true,
   selector: 'app-input-component',
@@ -24,6 +47,16 @@ export class InputComponent implements ControlValueAccessor {
   @Input() placeholder = '';
   @Input() icon = '';
   private _invalid = signal(false);
+  @Input() theme: 'light' | 'dark' = 'light';
+  @Input() type: InputType = 'text';
+
+  @HostBinding('class.light') get isLight() {
+    return this.theme === 'light';
+  }
+
+  @HostBinding('class.dark') get isDark() {
+    return this.theme === 'dark';
+  }
 
   @Input()
   set invalid(value: boolean) {

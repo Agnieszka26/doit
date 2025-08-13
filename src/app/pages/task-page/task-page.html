@@ -32,11 +32,7 @@
 </section>
 <app-drawer [open]="isOpen" (closed)="closeSheet()">
       <div class="drawer-container">
-        <p>CREATE FORM</p>
-        <!-- <img src="assets/images/Checkmark.png" alt="ok image" />
-        <h3>{{ TEXTS.yourAccountSuccessfully }}</h3>
-        <p>{{ TEXTS.receiveEmail }}</p>
-        <a href="verification"> {{ TEXTS.verifyCode }} </a> -->
+       <app-create-task-form></app-create-task-form>
       </div>
     </app-drawer>
 <app-navbar></app-navbar>

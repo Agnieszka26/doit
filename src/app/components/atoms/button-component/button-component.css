@@ -1,9 +1,17 @@
-.btn{
-    background-color: var(--color-primary);
-    color: var(--text-white);
-    padding: 8px 20px;
-    border-radius: 10px;
-    border: none;   
-    width: 100%;
-    font-family: "Poppins", sans-serif;
+.btn {
+  padding: 8px 20px;
+  border-radius: 10px;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+:host(.outlined) .btn {
+  background-color: var(--text-white);
+  color: var( --background-blue-dark);
+  border: 3px solid var(--color-primary);
+}
+:host(.filled) .btn {
+  background-color: var(--color-primary);
+  color: var(--text-white);
+  border: none;
 }

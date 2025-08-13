@@ -1,0 +1,30 @@
+<form>
+  <app-input-component
+    placeholder="Task"
+    icon="assets/icons/task_icon.png"
+    theme="dark"
+    type="text"
+  ></app-input-component>
+  <textarea placeholder="Description"></textarea>
+  <div class="container">
+    <app-input-component
+      placeholder="Date"
+      theme="dark"
+      type="date"
+      icon="assets/icons/date_icon.png"
+    ></app-input-component>
+    <app-input-component
+      placeholder="time"
+      theme="dark"
+      type="time"
+      icon="assets/icons/time_icon.png"
+    ></app-input-component>
+  </div>
+  <div class="container">
+    <app-button-component
+      label="cancel"
+      theme="outlined"
+    ></app-button-component>
+    <app-button-component label="create"></app-button-component>
+  </div>
+</form>

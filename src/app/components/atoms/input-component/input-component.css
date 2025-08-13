@@ -1,9 +1,36 @@
 .input-wrapper {
   display: flex;
   align-items: center;
-  background: white;
   border-radius: 5px;
-  padding: 0 0.5rem; 
+  padding: 0.5rem 0.5rem;
+}
+:host(.light) .input-wrapper{
+    background-color: var(--text-white);
+}
+:host(.dark) .input-wrapper{
+  background-color: var(--background-blue-dark);
+
+}
+
+:host(.light) .input-wrapper input {
+  background: var(--text-white);
+  color: var(--background-blue-dark);
+}
+
+:host(.dark) .input-wrapper input {
+  background: var(--background-blue-dark);
+  color: var(--text-white);
+}
+:host(.dark) input::placeholder {
+  color: var(--text-white);
+}
+:host(.light) input::placeholder {
+  color: var(--background-blue-light);
+  font-family: "Poppins";
+}
+
+input::placeholder {
+  font-family: "Poppins";
 }
 
 .input-wrapper .icon {
@@ -14,12 +41,16 @@
 
 .input-wrapper input {
   width: 100%;
-  padding: 0.5rem 0.5rem;
+  
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.error-text{
-  color: red
+.error-text {
+  color: red;
+}
+
+::-webkit-calendar-picker-indicator {
+  display: none;
 }

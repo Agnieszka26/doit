@@ -1,0 +1,31 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  gap: 16px;
+  max-width: 441px;
+  margin: auto;
+}
+.container {
+  display: flex;
+  gap: 16px;
+}
+.container > * {
+  flex: 1;           /* każdy element rośnie i zajmuje równo przestrzeń */
+  min-width: 0;      /* pozwala na zawijanie i nie rozszerza elementu ponad flex */
+}
+
+textarea {
+  width: 100%;
+  background-color: var(--background-blue-dark); /* ciemny granat */
+  color: var(--text-white);
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+textarea::placeholder {
+  color: var(--text-white);
+  font-family: "Poppins";
+}
