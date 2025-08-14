@@ -27,15 +27,4 @@ export class TaskPage {
     this._bottomSheet.dismiss();
   }
   }
-// isOpen = false;
-//   openSheet() {
-//     this.isOpen = true;
-//   }
-
-//   closeSheet = () => {
-//     console.log("closeSheet()")
-//     console.log("this.isOpen", this.isOpen)
-//     this.isOpen = false;
-//     console.log("this.isOpen", this.isOpen)
-//   }
 }

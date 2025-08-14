@@ -1,6 +1,6 @@
 <section>
-<div>search and sort menu</div>
- <h3>Tasks List</h3>
+  <div>search and sort menu</div>
+  <h3>Tasks List</h3>
   <div class="task-container">
     <app-task-item
       [taskName]="`Client meeting`"
@@ -23,7 +23,9 @@
       [taskId]="`126`"
     ></app-task-item>
     <div class="add-task-button-container">
-       <button (click)="openBottomSheet()" class="add-task-btn"><img src="assets/icons/add_task_icon.png" alt="add task icon" /></button>
+      <button (click)="openBottomSheet()" class="add-task-btn">
+        <img src="assets/icons/add_task_icon.png" alt="add task icon" />
+      </button>
     </div>
   </div>
 </section>
