@@ -10,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('todo');
+
+  constructor(){
+    
+    
+console.log(" process.env['NG_APP_FIREBASE_API_KEY']",  process.env['NG_APP_FIREBASE_API_KEY'])
+  }
 }
