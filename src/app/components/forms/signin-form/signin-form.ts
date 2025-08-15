@@ -11,6 +11,9 @@ import { InputComponent } from '../../atoms/input-component/input-component';
 import { ButtonComponent } from '../../atoms/button-component/button-component';
 import { texts } from '../../../constants/texts';
 import { Drawer } from '../../drawer/drawer';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {auth} from "../../../../firebase.config"
+
 
 export function matchValidator(
   matchTo: string,
@@ -73,14 +76,27 @@ export class SigninForm {
   onSubmit() {
     if (this.form.valid) {
       console.log('Form submitted:', this.form.value);
-      this.openSheet('success')
-      //TODO: wysłanie danych do serwera
+      this.openSheet('success');
+      const email = this.form.value.email;
+      const password = this.form.value.password;
+      if(email && password)
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error('errorCode:', errorCode, 'errorMessage', errorMessage);
+        });
     } else {
       console.error('Form is invalid');
       this.form.markAllAsTouched();
     }
   }
-  openSheet(type:  'success') {
+  openSheet(type: 'success') {
     this.drawerType = type;
     this.isOpen = true;
   }

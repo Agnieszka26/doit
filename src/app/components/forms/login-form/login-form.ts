@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { texts } from '../../../constants/texts';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../../../../firebase.config';
 import {
   FormBuilder,
   FormGroup,
@@ -36,11 +38,26 @@ export class LoginForm {
       console.log('Form changes:', value);
     });
   }
+
+
   onSubmit() {
     if (this.form.valid) {
       console.log('Form submitted:', this.form.value);
-      this.router.navigate(['dashboard']);
-      //TODO: wysłanie danych do serwera
+      const email = this.form.value.email
+      const password = this.form.value.password
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user)
+        this.router.navigate(['dashboard']);
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error("errorCode:", errorCode, "errorMessage", errorMessage)
+  });
+
     } else {
       console.log('Form is invalid');
       this.form.markAllAsTouched();
