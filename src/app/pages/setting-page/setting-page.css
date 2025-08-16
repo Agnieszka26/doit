@@ -1,0 +1,56 @@
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30%;
+  margin-bottom: 60px;
+}
+h2 {
+  font-weight: 400;
+}
+nav button {
+  padding: 8px;
+  border-radius: 100%;
+  border: none;
+}
+
+a {
+  padding: 16px 0px;
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  justify-content: space-between;
+  padding-right: 16px;
+}
+a .nav-item {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+a .nav-item p {
+  color: var(--text-white);
+}
+
+a .nav-item img {
+  height: 32px;
+  width: 32px;
+}
+a img {
+  height: 15px;
+  width: 9px;
+  align-self: center;
+}
+
+.logout-button {
+  padding: 8px 42px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: 32px;
+  margin: 42px auto;
+}
+.logout-button span {
+  color: red;
+  font-family: "Poppins";
+}

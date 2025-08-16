@@ -22,25 +22,33 @@ export const texts = {
     signInWith: 'Sign In with:',
     signUpWith: 'Sign Up with:',
     email: 'Email',
-    password: 'Password',   
+    password: 'Password',
     confirmPassword: 'Confirm Password',
     fullName: 'Full Name',
-    yourAccountSuccessfully: "Your account has been created successfully",
+    yourAccountSuccessfully: 'Your account has been created successfully',
     receiveEmail: 'You gonna receive a verification code in your email',
-    verifyCode: "Verify your email code."
-
+    verifyCode: 'Verify your email code.',
   },
-  VERIFICATION:{
-    verifyAccount: "Verify account",
-    description: "By verifying your account, you data will be secured and be default you are accepting our terms and policies",
-    verificationCode: "Verification code",
-    verify: "Verify",
-    successMessage: "example2023@gmail.com is verified"
+  VERIFICATION: {
+    verifyAccount: 'Verify account',
+    description:
+      'By verifying your account, you data will be secured and be default you are accepting our terms and policies',
+    verificationCode: 'Verification code',
+    verify: 'Verify',
+    successMessage: 'example2023@gmail.com is verified',
   },
   TASK: {
-    task: "Task",
-    description: "Description",
-    cancel: "cancel",
-    create: "create",
-  }
+    task: 'Task',
+    description: 'Description',
+    cancel: 'cancel',
+    create: 'create',
+  },
+  SETTINGS: {
+    settings: 'Settings',
+    profile: 'Profile',
+    conversations: 'Conversations',
+    projects: 'Projects',
+    termsAndPolicies: ' Terms and Policies',
+    logout: 'Logout',
+  },
 };
