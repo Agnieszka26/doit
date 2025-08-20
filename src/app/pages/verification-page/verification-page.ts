@@ -26,7 +26,6 @@ export class VerificationPage {
   }
   onSubmit() {
     if (this.form.valid) {
-      console.log('Form submitted:', this.form.value);
       this.openSheet('success');
       //TODO: zrobić prawdziwą weryfikację
 

@@ -1,4 +1,15 @@
 <form [formGroup]="form">
+    <app-input-component
+    formControlName="name"
+    placeholder="{{ TEXTS.name }}"
+    [invalid]="
+      (form.get('name')?.invalid &&
+        form.get('name')?.touched &&
+        form.get('name')?.dirty) ||
+      false
+    "
+    [errors]="form.get('name')?.errors ?? null"
+  ></app-input-component>
   <app-input-component
     formControlName="email"
     placeholder="{{ TEXTS.email }}"

@@ -12,8 +12,8 @@ import { ButtonComponent } from '../../atoms/button-component/button-component';
 import { texts } from '../../../constants/texts';
 import { Drawer } from '../../drawer/drawer';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import {auth} from "../../../../firebase.config"
-
+import { auth } from '../../../../firebase.config';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 export function matchValidator(
   matchTo: string,
@@ -34,7 +34,7 @@ export function matchValidator(
       : { matching: true };
   };
 }
-
+const db = getFirestore();
 @Component({
   selector: 'app-signin-form',
   imports: [ReactiveFormsModule, InputComponent, ButtonComponent, Drawer],
@@ -49,6 +49,7 @@ export class SigninForm {
   isOpen = false;
 
   form = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     password: [
       '',
@@ -67,30 +68,36 @@ export class SigninForm {
       ],
     ],
   });
-  constructor() {
-    this.form.valueChanges.subscribe((value) => {
-      console.log('Form changes:', value);
-    });
-  }
+
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('Form submitted:', this.form.value);
       this.openSheet('success');
       const email = this.form.value.email;
       const password = this.form.value.password;
-      if(email && password)
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed up
-          const user = userCredential.user;
-          console.log(user);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.error('errorCode:', errorCode, 'errorMessage', errorMessage);
-        });
+      const name = this.form.value.name;  
+      if (email && password)
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            setDoc(doc(db, 'users', user.uid), {
+              name: name || 'New User',
+              email: user.email,
+              id: user.uid,
+              createdAt: new Date(),
+            });
+          })
+
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error(
+              'errorCode:',
+              errorCode,
+              'errorMessage',
+              errorMessage,
+            );
+          });
     } else {
       console.error('Form is invalid');
       this.form.markAllAsTouched();

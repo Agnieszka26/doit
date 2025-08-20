@@ -6,7 +6,7 @@ import {
   MatBottomSheet,
   MatBottomSheetModule,
 } from '@angular/material/bottom-sheet';
-import { getFirestore, collection, addDoc, getDocs} from 'firebase/firestore';
+import { getFirestore, collection, getDocs} from 'firebase/firestore';
 
 import {MatButtonModule} from '@angular/material/button';
 import { app } from '../../../firebase.config';
@@ -28,7 +28,6 @@ export class TaskPage {
         docsRef.forEach(doc => {
           console.log(doc.id, " => ", doc.data());
         });
-      // console.log("docsRef", docsRef)
      } catch (error) {
       console.error(error)
      }
@@ -41,7 +40,6 @@ export class TaskPage {
     this._bottomSheet.open(CreateTaskForm);
   }
   closeBottomSheet(): void{
-    console.log("closeBottomSheet")
     if (this._bottomSheet) {
     this._bottomSheet.dismiss();
   }

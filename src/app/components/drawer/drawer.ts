@@ -75,9 +75,6 @@ export class Drawer {
       this.setTranslate(0); // Reset position if not closed
     }
   }
-  onBackdropKeydown(event: Event) {
-    console.log('xds', event);
-  }
 
   private getY(event: MouseEvent | TouchEvent): number {
     return event instanceof MouseEvent

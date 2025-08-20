@@ -33,25 +33,29 @@ export class LoginForm {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
-  constructor() {
-    //reagowanie na zmiany w formularzu
-    this.form.valueChanges.subscribe((value) => {
-      console.log('Form changes:', value);
-    });
-  }
-
-  onSubmit() {
+  async onSubmit() {
     if (this.form.valid) {
-      console.log('Form submitted:', this.form.value);
       const email = this.form.value.email;
       const password = this.form.value.password;
-      this.authService.login(email, password)
-        .then(() => { this.router.navigate(['/dashboard']); })
+      await this.authService
+        .login(email, password)
+        .then(async () => {
+          const userWithProfile = this.authService.userWithProfile$.subscribe(
+            (user) => {
+              if (user) {
+                console.log('User profile:', user.profile);
+                this.router.navigate(['/dashboard']);
+              } else {
+                console.error('Nie zalogowany');
+              }
+            },
+          );
+        })
         .catch((error) => {
           console.error('Login error:', error);
-        }); 
+        });
     } else {
-      console.log('Form is invalid');
+      console.error('Form is invalid');
       this.form.markAllAsTouched();
     }
   }

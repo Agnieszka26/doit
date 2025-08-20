@@ -23,11 +23,9 @@ private _bottomSheetRef = inject(MatBottomSheetRef<CreateTaskForm>);
   });
 
   onSubmit() {
-    console.log('Form submitted:', this.form.value);
     this._bottomSheetRef.dismiss('clear');
   }
   onCancel() {
-    console.log('onCancel');
     this.form.reset();
     this._bottomSheetRef.dismiss('clear');
   }

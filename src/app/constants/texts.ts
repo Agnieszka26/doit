@@ -28,6 +28,7 @@ export const texts = {
     yourAccountSuccessfully: 'Your account has been created successfully',
     receiveEmail: 'You gonna receive a verification code in your email',
     verifyCode: 'Verify your email code.',
+    name: 'name'
   },
   VERIFICATION: {
     verifyAccount: 'Verify account',

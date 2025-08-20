@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideClientHydration(withEventReplay()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),  // 🔑 provider dla Auth
+    provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
   ]
 };
