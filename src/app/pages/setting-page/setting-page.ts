@@ -1,9 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Navbar } from '../../components/navbar/navbar';
 import { texts } from '../../constants/texts';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../../firebase.config';
-import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth';
 
 @Component({
   selector: 'app-setting-page',
@@ -13,16 +11,8 @@ import { Router } from '@angular/router';
 })
 export class SettingPage {
   readonly TEXTS = texts.SETTINGS;
-  private router = inject(Router);
+  private authService = inject(AuthService);
   logout() {
-    signOut(auth)
-      .then(() => {
-        console.log('Logout successful.');
-        this.router.navigate(["/"])
-        
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    this.authService.logout();
   }
 }
