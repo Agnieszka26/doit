@@ -11,9 +11,8 @@ import { InputComponent } from '../../atoms/input-component/input-component';
 import { ButtonComponent } from '../../atoms/button-component/button-component';
 import { texts } from '../../../constants/texts';
 import { Drawer } from '../../drawer/drawer';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../../../firebase.config';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { AuthService } from '../../../service/auth';
+
 
 export function matchValidator(
   matchTo: string,
@@ -34,7 +33,7 @@ export function matchValidator(
       : { matching: true };
   };
 }
-const db = getFirestore();
+
 @Component({
   selector: 'app-signin-form',
   imports: [ReactiveFormsModule, InputComponent, ButtonComponent, Drawer],
@@ -44,6 +43,7 @@ const db = getFirestore();
 })
 export class SigninForm {
   readonly TEXTS = texts.LOGIN_SIGNIN;
+  private authService = inject(AuthService);
   private fb = inject(FormBuilder);
   drawerType: 'success' | null = null;
   isOpen = false;
@@ -76,28 +76,12 @@ export class SigninForm {
       const email = this.form.value.email;
       const password = this.form.value.password;
       const name = this.form.value.name;  
-      if (email && password)
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            setDoc(doc(db, 'users', user.uid), {
-              name: name || 'New User',
-              email: user.email,
-              id: user.uid,
-              createdAt: new Date(),
-            });
-          })
+     if (email && password) {
+      this.authService.register(name!, email, password)
+        .then(user => console.log('Zarejestrowano', user))
+        .catch(error => console.error(error));
+    }
 
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error(
-              'errorCode:',
-              errorCode,
-              'errorMessage',
-              errorMessage,
-            );
-          });
     } else {
       console.error('Form is invalid');
       this.form.markAllAsTouched();

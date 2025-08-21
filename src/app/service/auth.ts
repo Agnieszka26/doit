@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, signOut, User, user } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User, user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { from, Observable, shareReplay } from 'rxjs';
-import { Firestore, doc, getDoc } from '@angular/fire/firestore';
+import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 import { of, switchMap, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -50,5 +50,17 @@ export class AuthService {
   async logout() {
     await signOut(this.auth);
     this.router.navigate(['/login']);
+  }
+
+    async register(name: string, email: string, password: string) {
+    const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+    const user = userCredential.user;
+    await setDoc(doc(this.firestore, 'users', user.uid), {
+      name,
+      email,
+      id: user.uid,
+      createdAt: new Date(),
+    });
+    return user;
   }
 }

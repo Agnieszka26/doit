@@ -6,12 +6,12 @@ import {
   MatBottomSheet,
   MatBottomSheetModule,
 } from '@angular/material/bottom-sheet';
-import { getFirestore, collection, getDocs} from 'firebase/firestore';
+// import { getFirestore, collection, getDocs} from 'firebase/firestore';
 
 import {MatButtonModule} from '@angular/material/button';
-import { app } from '../../../firebase.config';
+// import { app } from '../../../firebase.config';
 
-const db = getFirestore(app);
+// const db = getFirestore(app);
 @Component({
   selector: 'app-task-page',
   imports: [Navbar, TaskItem, MatButtonModule, MatBottomSheetModule],
@@ -20,21 +20,21 @@ const db = getFirestore(app);
 })
 export class TaskPage {
     private _bottomSheet = inject(MatBottomSheet);
- constructor() {
+//  constructor() {
 
-   async function getTasks() {
-     try {
-      const docsRef = await getDocs(collection(db, "tasks"))
-        docsRef.forEach(doc => {
-          console.log(doc.id, " => ", doc.data());
-        });
-     } catch (error) {
-      console.error(error)
-     }
+//    async function getTasks() {
+//      try {
+//       const docsRef = await getDocs(collection(db, "tasks"))
+//         docsRef.forEach(doc => {
+//           console.log(doc.id, " => ", doc.data());
+//         });
+//      } catch (error) {
+//       console.error(error)
+//      }
 
-  }
- getTasks()
-}
+//   }
+//  getTasks()
+// }
 
   openBottomSheet(): void {
     this._bottomSheet.open(CreateTaskForm);
