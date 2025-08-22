@@ -32,26 +32,22 @@
   <h3>Incomplete Tasks</h3>
   <div class="task-container">
 <app-task-item
-  *ngFor="let task of tasks()"
+  *ngFor="let task of incompleteTasks()"
   [taskName]="task.name"
-  [taskTime]="'Tomorrow | 10:30pm'"
+  [taskTime]="task.formattedTime"
   [taskId]="task.id"
+  [isComplete]="task.isComplete"
 ></app-task-item>
   </div>
   <h3>Completed Tasks</h3>
   <div class="task-container">
-    <app-task-item
-      [isComplete]="true"
-      [taskName]="`Client meeting`"
-      [taskTime]="`Today | 10:30pm`"
-      [taskId]="`122`"
-    ></app-task-item>
-    <app-task-item
-      [isComplete]="true"
-      [taskName]="`Client meeting with pople`"
-      [taskTime]="`Today | 12:30pm`"
-      [taskId]="`121`"
-    ></app-task-item>
+<app-task-item
+  *ngFor="let task of completedTasks()"
+  [taskName]="task.name"
+  [taskTime]="task.formattedTime"
+  [taskId]="task.id"
+  [isComplete]="task.isComplete"
+></app-task-item>
   </div>
 </section>
 <app-navbar></app-navbar>

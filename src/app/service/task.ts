@@ -8,7 +8,22 @@ import {
   updateDoc,
   deleteDoc,
   getDocs,
+  Timestamp,
 } from '@angular/fire/firestore';
+const dateFormatter = (timestamp: Timestamp): string =>{
+
+const date = timestamp.toDate();
+
+const day = String(date.getDate()).padStart(2, '0');
+const month = String(date.getMonth() + 1).padStart(2, '0');
+const year = date.getFullYear();
+
+const hours = String(date.getHours()).padStart(2, '0');
+const minutes = String(date.getMinutes()).padStart(2, '0');
+
+return `${day}/${month}/${year} | ${hours}:${minutes}`;
+
+}
 
 export interface TaskInterface {
   createdAt: Date;
@@ -16,7 +31,8 @@ export interface TaskInterface {
   name: string;
   description: string;
   time: Date;
-  isCompleted: boolean;
+  isComplete: boolean;
+  formattedTime: string;
   user: [];
 }
 
@@ -28,10 +44,16 @@ export class TaskService {
   async getTasks() {
     const querySnapshot = await getDocs(collection(this.firestore, 'tasks'));
     const tasks: TaskInterface[] = querySnapshot.docs.map((docSnap) => {
-      return { id: docSnap.id, ...docSnap.data() } as TaskInterface;
-    });
+    const time = dateFormatter( docSnap.data()['time']) 
+      
 
-    return tasks;
+      return { id: docSnap.id, formattedTime: time, ...docSnap.data() } as TaskInterface;
+    });
+    const completed = tasks.filter((task) => task.isComplete) ?? []
+    const incomplete = tasks.filter((task) => !task.isComplete) ?? []
+    console.log("completed", completed, "incomplete", incomplete)
+
+  return { completed, incomplete };
   }
 
   async getTaskById(id: string): Promise<TaskInterface | undefined> {

@@ -17,7 +17,8 @@ export class Dashboard {
   private authService = inject(AuthService);
   private taskService = inject(TaskService);
   tasks = toSignal(from(this.taskService.getTasks()));
-  
+  completedTasks = computed(() => this.tasks()?.completed ?? []);
+  incompleteTasks = computed(() => this.tasks()?.incomplete ?? []);
   readonly user = toSignal(this.authService.userWithProfile$);
   readonly name = computed(() => this.user()?.profile?.['name'] ?? '');
   readonly email = computed(() => this.user()?.profile?.['email'] ?? 'email');
